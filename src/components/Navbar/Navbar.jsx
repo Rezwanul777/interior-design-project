@@ -1,4 +1,6 @@
 import logo  from '../../assets/logo.png'
+import { motion } from "framer-motion";
+
 
 const NavLinks = [
     {
@@ -26,7 +28,12 @@ const NavLinks = [
 const Navbar = () => {
   return (
    <>
-   <div className="container py-4 flex items-center justify-between">
+   <motion.div 
+    initial={{ y: -100 }}
+    animate={{ y: 0 }}
+    transition={{ duration: 0.5 }}
+   
+   className="container py-4 flex items-center justify-between">
     {/* logo section */}
    <div className='flex items-center gap-3'>
    <img src={logo} alt="" className='size-10'/>
@@ -36,7 +43,7 @@ const Navbar = () => {
     <div className='hidden md:block'>
         {
             NavLinks.map(link => (
-                <a href="#" key={link.id} className='mx-4 text-sm font-semibold'>{link.title}</a>
+                <a href="#" key={link.id} className='mx-4 text-lg font-semibold'>{link.title}</a>
             ))
             
  
@@ -46,7 +53,7 @@ const Navbar = () => {
     <div>
         <button className='primary-btn'>Try for free</button>
     </div>
-   </div>
+   </motion.div>
    </>
   )
 }
